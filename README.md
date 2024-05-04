@@ -29,14 +29,13 @@ Archivos de lanzamiento
 
 
 ## Instrucciones para construir paquetes del proyecto
-
-
-En la raíz del proyecto:
+Cada vez que se agregue un archivo nuevo es necesario.
 
 ```   
 colcon build --symlink-install
 ```    
 
+## Variables de entorno
 Configuración del entorno para el shell actual.
 
 ```    
