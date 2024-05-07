@@ -9,6 +9,8 @@ from launch_ros.actions import Node
 
 import xacro
 
+# Place here the robot name without .xacro extension
+robot_name="donBarredora"
 
 def generate_launch_description():
 
@@ -18,7 +20,7 @@ def generate_launch_description():
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('boxbots'))
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
+    robot_description_config = xacro.process_file(xacro_file, mappings={'robot_name':robot_name})
     
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
