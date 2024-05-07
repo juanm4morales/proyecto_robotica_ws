@@ -42,4 +42,19 @@ Configuración del entorno para el shell actual.
 source install/setup.bash
 ```
 
- 
+## Instrucciones de lanzamiento
+
+Launch simulación de robot con gazebo
+```    
+ros2 launch boxbots launch_sim launch.py
+```
+
+Launch teleoperation keyboard
+```    
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```    
+
+Launch teleoperation joystick 
+``` 
+ros2 run teleop_twist_joy teleop_node
+```
