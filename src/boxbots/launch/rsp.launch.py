@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 import xacro
 
 # Place here the robot name without .xacro extension
-robot_name="axeBot"
+robot_name="donBarredora"
 
 def generate_launch_description():
 
