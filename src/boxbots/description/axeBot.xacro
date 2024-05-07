@@ -5,8 +5,8 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <material name="orange">
-        <color rgba="1 0.6 0.2 1"/>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
     </material>
 
     <material name="green">
@@ -52,7 +52,7 @@
     </link>
 
     <gazebo reference="chassis">
-        <material>Gazebo/Green</material>
+        <material>Gazebo/Turquoise</material>
     </gazebo>
 
     <!-- LEFT WHEEL -->
@@ -96,7 +96,7 @@
         <child link="right_wheel"/>
         <!-- y=-(ancho/2+grosor_rueda/2)  -->
         <origin xyz="0 -0.225 0"/>
-        <axis xyz="0 -1 0"/>
+        <axis xyz="0 1 0"/>
     </joint>
 
     <link name="right_wheel">
@@ -137,7 +137,7 @@
             <geometry>
                 <mesh filename="file://$(find boxbots)/description/meshes/AxeBot/ball_wheel.dae" scale="0.10 0.10 0.10"/>
             </geometry>
-            <material name="orange"/>
+            <material name="white"/>
         </visual>
         
         <collision>
@@ -153,7 +153,7 @@
     </link>
 
     <gazebo reference="caster_wheel">
-        <material>Gazebo/Orange</material>
+        <material>Gazebo/White</material>
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
     </gazebo>
@@ -172,7 +172,7 @@
             <geometry>
                 <mesh filename="file://$(find boxbots)/description/meshes/AxeBot/tail.dae" scale="0.10 0.10 0.10"/>
             </geometry>
-            <material name="orange"/>
+            <material name="white"/>
         </visual>
         
         <collision>
@@ -188,8 +188,8 @@
     
     </link>
 
-    <gazebo reference="chassis_tail">
-        <material>Gazebo/Orange </material>
+    <gazebo reference="tail">
+        <material>Gazebo/YellowGlow</material>
     </gazebo>
 
     <!-- AXE -->
@@ -197,7 +197,7 @@
     <joint name="axe_joint" type="fixed">
         <parent link="chassis"/>
         <child link="axe"/>
-        <origin xyz="0.6 0 0.01"/>
+        <origin xyz="0.6 0 0.01" />
     </joint>
 
     <link name="axe">
@@ -225,7 +225,7 @@
     </link>
     
     <gazebo reference="axe">
-        <material>Gazebo/Red</material>
+        <material>Gazebo/RedGlow</material>
     </gazebo>
 
     <!-- LIDAR SUPPORT LINK-->
