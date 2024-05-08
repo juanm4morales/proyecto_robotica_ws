@@ -17,6 +17,10 @@
     ```
     sudo apt install ros-humble-gazebo-ros-pkgs
     ```
+- Control packages
+    ```
+    sudo apt-get install ros-humble-twist-mux ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control  
+    ```
 
 ## Estructura de paquetes
 
@@ -44,9 +48,13 @@ source install/setup.bash
 
 ## Instrucciones de lanzamiento
 
-Launch simulación de robot con gazebo
+Launch simulación de robot con gazebo (mundo vacio)
 ```    
 ros2 launch boxbots launch_sim launch.py
+```
+Launch simulación de robot con gazebo mundo personalizado Race.xml
+```
+ros2 launch boxbots launch_sim.launch.py world:=/home/*user*/proyecto_robotica_ws/src/boxbots/worlds/Race_World/Race.xml
 ```
 
 Launch teleoperation keyboard
@@ -56,5 +64,5 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 Launch teleoperation joystick 
 ``` 
-ros2 run teleop_twist_joy teleop_node
+ros2 launch boxbots joystick.launch.py
 ```
