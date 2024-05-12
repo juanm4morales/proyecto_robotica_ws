@@ -54,7 +54,7 @@ ros2 launch boxbots launch_sim.launch.py
 ```
 Launch simulación de robot con gazebo mundo personalizado Race.xml
 ```
-ros2 launch boxbots launch_sim.launch.py world:=/home/*user*/proyecto_robotica_ws/src/boxbots/worlds/Race_World/Race.xml
+ros2 launch boxbots launch_sim.launch.py world:=install/boxbots/share/boxbots/worlds/Race_World/Race.xml
 ```
 
 Launch teleoperation keyboard
