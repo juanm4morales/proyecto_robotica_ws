@@ -50,7 +50,7 @@ source install/setup.bash
 
 Launch simulación de robot con gazebo (mundo vacio)
 ```    
-ros2 launch boxbots launch_sim launch.py
+ros2 launch boxbots launch_sim.launch.py
 ```
 Launch simulación de robot con gazebo mundo personalizado Race.xml
 ```
