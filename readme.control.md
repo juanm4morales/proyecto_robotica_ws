@@ -9,11 +9,11 @@ En esta sección se presenta cómo funciona ros2_control y cómo se utilizará e
 ### Controller Manager
 Como principal componente se encuentra Controller Manager. El cuál encontrará todos los bits de código para nuestros drivers de hardware y controladores y los vinculará. Es una biblioteca que se carga en tiempo de ejecución y tiene un conjunto de funciones que se vincularán al sistema.
 
-![](./documentation_data\images\image.png)
+![](./documentation_data/images/image.png)
 
 Hardware diferente se debe controlar diferente. Cualquiera que sea el aspecto del hardware, para usar ros2_control con él, necesitamos algo llamado hardware interface  (a veces llamado hardware component). Este es un fragmento de código que se comunica con el hardware y lo expone de la forma estándar ros2_control. 
 
-![](./documentation_data\images\image-1.png)
+![](./documentation_data/images/image-1.png)
 
 *Hardware interface* actúa como una abstracción, de modo que, como usuarios, todo lo que necesitamos entender es la forma en que representa nuestro hardware, que es a través de interfaces de comando e interfaces de estado. Las interfaces de comando son cosas que podemos controlar y las interfaces de estado son cosas que solo podemos monitorear.
 
@@ -21,7 +21,7 @@ El trabajo del *controller manager* es tomar los controladores que se le solicit
 
 El proyecto en el que estamos trabajando es un robot de accionamiento diferencial (differential drive), por lo que, naturalmente, usaremos diff_drive_controller. 
 
-![](./documentation_data\images\image-2.png) 
+![alt text](./documentation_data/images/image-2.png) 
 
 La tracción diferencial (differential drive) es un sistema de tracción de dos ruedas con actuadores independientes para cada rueda. El nombre se refiere al hecho de que el vector de movimiento del robot es la suma de los movimientos independientes de las ruedas. Las ruedas motrices generalmente se colocan a cada lado del robot. 
 
