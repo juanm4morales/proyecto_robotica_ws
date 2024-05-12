@@ -18,8 +18,8 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.450 #deberia cambiar para cada robot
-    wheel_radius: 0.1	#deberia cambiar para cada robot
+    wheel_separation: 0.4 #deberia cambiar para cada robot
+    wheel_radius: 0.15	#deberia cambiar para cada robot
 
     use_stamped_vel: false
 
