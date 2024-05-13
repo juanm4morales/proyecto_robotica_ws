@@ -56,10 +56,12 @@ ros2 launch boxbots launch_sim.launch.py world:=install/boxbots/share/boxbots/wo
 
 Launch teleoperation keyboard
 ```    
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r __ns:=/bot_n
+n = 1,2,3 segun el robot que quieras controlar
 ```    
 
 Launch teleoperation joystick 
-``` 
+```
 ros2 run teleop_twist_joy teleop_node
+(El joystick no funciona correctamente, maneja los 3 al mismo tiempo)
 ```
