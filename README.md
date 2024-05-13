@@ -46,7 +46,12 @@ source install/setup.bash
 
 Launch simulación de robot con gazebo
 ```    
-ros2 launch boxbots launch_sim launch.py
+ros2 launch boxbots launch_sim.launch.py
+```
+
+Launch simulación de robot con gazebo y mundo personalizado
+```
+ros2 launch boxbots launch_sim.launch.py world:=install/boxbots/share/boxbots/worlds/Race_World/Race.xml
 ```
 
 Launch teleoperation keyboard
