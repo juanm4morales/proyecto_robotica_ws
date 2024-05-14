@@ -51,6 +51,5 @@ def generate_launch_description():
     return LaunchDescription([
         rsp,
         gazebo,
-        spawn_entity,
-        joystick        
+        spawn_entity,     
     ])
