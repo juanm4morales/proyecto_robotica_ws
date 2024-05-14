@@ -26,12 +26,6 @@ def generate_launch_description():
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # Start joystick
-    joystick = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            package_path, 'launch', 'joystick.launch.py'
-        )]), launch_arguments={'use_sim_time': 'true'}.items()
-    )
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
