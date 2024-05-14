@@ -3,8 +3,8 @@
 
     <xacro:arg name="robot_name" default="robot_core"/>
     <xacro:property name="robot_name" value="$(arg robot_name)"/>
+
     <xacro:include filename="${robot_name}.xacro"/>
-    
 
     <xacro:if value="$(arg use_ros2_control)">
         <xacro:include filename="ros2_control.xacro" />
@@ -14,6 +14,7 @@
     </xacro:unless>
 
     <xacro:include filename="lidar.xacro"/>
+    <xacro:include filename="imu.xacro"/>
     
     
 </robot>
