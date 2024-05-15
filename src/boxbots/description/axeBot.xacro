@@ -23,6 +23,17 @@
     <!-- BASE LINK -->
     <link name="base_link"></link>
 
+    <!-- BASE FOOTPRINT LINK -->
+    <!-- for 2d space reference. for mapping-->
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_footprint">
+    </link>
+
     <!-- chassis -->
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
@@ -73,9 +84,9 @@
         </visual>
         
         <collision>
-            <origin xyz="0.287 -0.225 -0.1427" rpy="${pi/2} 0 ${pi/2}"/>
+            <origin xyz="0 -0.03 0" rpy="${pi/2} 0 0"/>
             <geometry>
-                <mesh filename="file://$(find boxbots)/description/meshes/AxeBot/left_wheel.dae" scale="0.10 0.10 0.10"/>
+                <cylinder radius="0.1" length="0.05"/>
             </geometry>
         </collision>
 
@@ -108,9 +119,9 @@
         </visual>
         
         <collision>
-            <origin xyz="0.287 0.225 -0.1427" rpy="${pi/2} 0 ${pi/2}"/>
+            <origin xyz="0 0.03 0" rpy="${pi/2} 0 0"/>
             <geometry>
-                <mesh filename="file://$(find boxbots)/description/meshes/AxeBot/right_wheel.dae" scale="0.10 0.10 0.10"/>
+                <cylinder radius="0.1" length="0.05"/>
             </geometry>
         </collision>
 
