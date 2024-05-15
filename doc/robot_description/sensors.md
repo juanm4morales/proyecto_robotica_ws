@@ -1,0 +1,6 @@
+# Sensores
+## LiDAR
+
+### Configuración
+
+## IMU?
