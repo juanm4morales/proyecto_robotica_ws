@@ -30,7 +30,9 @@ R(\theta) =\left[\begin{array}{rrr}
   \end{array}\right]
 $$
 
-podemos computar el movimiento del robot en el marco de la referencia global a partir del movimiento en sus sistema de referencia local: $ \dot \xi_R = R(\theta)^{-1} \dot \xi_R $.
+podemos computar el movimiento del robot en el marco de la referencia global a partir del movimiento en sus sistema de referencia local:
+
+$$ \dot \xi_R = R ( \theta )^{-1} \dot \xi_{R} $$
 
 
 ### Plugin Differential Drive
