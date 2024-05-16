@@ -62,8 +62,3 @@ Launch teleoperation keyboard
 ```    
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```    
-
-Launch teleoperation joystick 
-``` 
-ros2 launch boxbots joystick.launch.py
-```
