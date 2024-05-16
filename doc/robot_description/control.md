@@ -38,7 +38,7 @@ Para ejecutar el controller manager se utilizará `ros2_control_node` provided b
 #### Construcción de ros2_control.xacro
 
 <p align="center" width="100%">
-    <img src="./image/ros2_control_explain.png" height="150" width="250"  > 
+    <img src="./image/ros2_control.png" height="150" width="250"  > 
 </p>
 
 Dentro del tag `ros2_control` agregamos una etiqueta <hardware> con una etiqueta <plugin> dentro, y este será el nombre de la interfaz de hardware que necesita cargar. En este caso, el nombre del complemento que queremos usar es `gazebo_ros2_control/GazeboSystem`, así que podemos ponerlo allí.
@@ -73,6 +73,15 @@ Necesitamos crear dos controladores, un diff_drive_controller y un joint_state_b
 
 `Joint_state_broadcaster` simplemente usa las posiciones del codificador de rueda para publicar el mensaje /joint_states que robot_state_publisher necesita para generar las transformaciones de rueda.
 
+
+### Instalación necesaria 
+
+Es necesario instalar los siguientes paquetes de control de ros2: 
+
+- Control packages
+    ```
+    sudo apt-get install ros-humble-twist-mux ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control  
+    ```
 
 ### Configuraciones de lanzamiento
 
