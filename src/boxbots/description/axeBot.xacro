@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- Ancho: 0.3m , grosor de rueda 0.05m  Alto: 0.6m Largo: 0.6m -->
 
     <xacro:include filename="inertial_macros.xacro"/>
 
