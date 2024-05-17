@@ -33,16 +33,8 @@ def generate_launch_description():
         }.items()
     )
 
-    # Start navigation node
-    navigation = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory("nav2_bringup"), 'launch', 'navigation_launch.py')
-        ]), launch_arguments={ 'use_sim_time': 'true' }.items()
-    )
-
     # Launch them all!
     return LaunchDescription([
         sim,
-        slam,
-        navigation
+        slam
     ])
