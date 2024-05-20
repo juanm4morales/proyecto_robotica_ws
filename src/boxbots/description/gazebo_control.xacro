@@ -5,7 +5,7 @@
             <!-- Wheel Information -->
             <left_joint>left_wheel_joint</left_joint>
             <right_joint>right_wheel_joint</right_joint>
-            <wheel_separation>0.4</wheel_separation>
+            <wheel_separation>0.45</wheel_separation>
             <wheel_diameter>0.2</wheel_diameter>
 
             <!-- Limits -->
@@ -19,9 +19,6 @@
             <publish_odom>true</publish_odom>
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>true</publish_wheel_tf>
-
         </plugin>
     </gazebo>
-
-
 </robot>
