@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- Increase for more rays-->
+    <xacro:property name="horizontal_samples" value="1"/>
+
+    <xacro:property name="vertical_samples" value="0.25"/>
+
     <joint name="laser_joint" type="fixed">
         <parent link="lidar_support"/>
         <child link="laser_frame"/>
@@ -31,15 +36,23 @@
 
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
-            <visualize>false</visualize>
+            <visualize>true</visualize>
             <update_rate>10</update_rate>
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>360</samples>
-                        <min_angle>-3.14</min_angle>
-                        <max_angle>3.14</max_angle>
+                        <samples>180</samples>
+                        <resolution>${horizontal_samples}</resolution>
+                        <min_angle>-1.57</min_angle>
+                        <max_angle>1.57</max_angle>
                     </horizontal>
+
+                    <vertical>
+                        <samples>45</samples>
+                        <resolution>${vertical_samples}</resolution>
+                        <min_angle>-0.14</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
                 </scan>
                 <range>
                     <min>0.3</min>
