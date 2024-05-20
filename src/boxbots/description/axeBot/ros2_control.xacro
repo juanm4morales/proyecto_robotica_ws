@@ -29,6 +29,9 @@
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
             <parameters>$(find boxbots)/config/my_controllers_$(arg robot_name).yaml</parameters>
             <parameters>$(find boxbots)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
+            <ros>
+                <namespace>/axeBot</namespace>
+            </ros>
         </plugin>
     </gazebo>
 
