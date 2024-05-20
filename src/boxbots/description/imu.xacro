@@ -19,7 +19,6 @@
           <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
             <ros>
                 <argument>~/out:=imu</argument>
-                <namespace>/axeBot</namespace>
             </ros>
             <bodyName>imu_link</bodyName>
             <updateRateHZ>10.0</updateRateHZ>
