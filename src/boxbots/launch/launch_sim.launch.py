@@ -71,5 +71,5 @@ def generate_launch_description():
         rsp2,
         gazebo,
         spawn_entity,
-        spawn_entity2     
+        spawn_entity2,
     ])
