@@ -21,7 +21,7 @@ Ya habiendo realizado la compilacion de la imagen de docker, nos encontramos en 
 Para correr el entorno dockerizado se puede utilizar el archivo run_docker_gpu.bash.
 
 ```bash
-./run_docker_gpu.bash
+./run_docker.sh
 ```
 Es necesario tener instalado Docker y xhost para poder correr la visualización de Gazebo. 
 
@@ -35,7 +35,7 @@ Entendiendo la logica del primer comando vemos:
 
 ```bash
 docker run -it \ # Ejecuta el contenedor en modo interactivo
-  --name=r2_test_container \ # nombre del contenedor
+  --name=r2_boxbots_container \ # nombre del contenedor
   --env="DISPLAY=$DISPLAY" \ # le indica que el display de salida es el display de la maquina host
   --env="QT_X11_NO_MITSHM=1" \ # le indica que no se use el MIT-SHM extension
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \ # monta el directorio de salida de la maquina host en el contenedor (para grafica)
@@ -44,7 +44,49 @@ docker run -it \ # Ejecuta el contenedor en modo interactivo
   --volume="$XAUTH:$XAUTH" \ # monta el archivo de autorización en el contenedor
   --net=host \ # le indica que use la red de la maquina host
   --privileged \ # le da privilegios al contenedor
-  project_test \ # nombre de la imagen
+  r2_boxbots \ # nombre de la imagen
   bash # comando a ejecutar
 ```
 
+# Dockerizacion
+
+## En windows
+
+### Pasos previos
+En windows es necesario instalar la herramienta [VcXsrv](https://sourceforge.net/projects/vcxsrv/) para poder visualizar Gazebo.
+Luego de instalarlo hay que configurarlo, para ello, una vez instalado, se debe abrir el programa y configurar las opciones como se muestra en la siguiente imagen:
+
+![Config Xsrv](./image/dokcerization_vcxsrv_config.jpeg)
+
+donde el Display number 0 es el que vamos a utilizar luego para darle salida de video al contenedor.
+
+### Construccion
+
+Para construir la imagen de docker se puede utilizar el comando:
+```bash
+docker build -t r2_boxbots .
+```
+
+### Ejecucion
+Para correr el entorno dockerizado se puede utilizar el archivo run_docker_gpu.bat
+  
+  ```bash
+  run_docker.bat
+  ```
+
+Una vez ejecutado el comando anterior, para entrar en el container creado se debe ejecutar el siguiente comando en la terminal:
+  
+  ```bash
+  docker exec -it r2_boxbots_container bash
+  ```
+Podemos explicar la logica del primer comando de la siguiente manera:
+
+```bash 
+docker run -it \
+  --name=r2_boxbots_container \ # nombre del contenedor
+  -e DISPLAY=host.docker.internal:0.0 \  # le indica que el display de salida es el display de la maquina host
+  -e LIBGL_ALWAYS_INDIRECT=0 \ # le indica que no use el MIT-SHM extension
+  --volume="${PWD}/../:/root/project" \ # monta el directorio actual en el contenedor
+  r2_boxbots \ # nombre de la imagen
+  bash # comando a ejecutar
+```
