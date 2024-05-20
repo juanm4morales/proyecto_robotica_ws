@@ -31,6 +31,7 @@ def generate_launch_description():
     twist_mux = Node(
             package="twist_mux",
             executable="twist_mux",
+            namespace="donBarredora",
             parameters=[twist_mux_params, {'use_sim_time': True}],
             remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
     )
@@ -47,6 +48,7 @@ def generate_launch_description():
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
+        namespace="donBarredora",
         arguments=[
             '-topic', 'robot_description',
             '-entity', 'boxbots'
@@ -57,12 +59,14 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        namespace="donBarredora",
         arguments=["diff_cont"],
     )
 
     joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
+        namespace="donBarredora",
         arguments=["joint_broad"],
     )
 

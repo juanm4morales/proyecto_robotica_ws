@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 import xacro
 
 # Place here the robot name without .xacro extension
-robot_name="donBarredora"
+robot_name="axeBot"
 
 def generate_launch_description():
 
@@ -19,7 +19,7 @@ def generate_launch_description():
 
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('boxbots'))
-    xacro_file = os.path.join(pkg_path,'description','donBarredora','robot.urdf.xacro')
+    xacro_file = os.path.join(pkg_path,'description','axeBot','robot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file, mappings={'robot_name':robot_name, 'use_ros2_control': 'true'})
     
     # Create a robot_state_publisher node
@@ -27,7 +27,7 @@ def generate_launch_description():
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        namespace= 'donBarredora',
+        namespace= 'axeBot',
         output='screen',
         parameters=[params]
     )
