@@ -22,7 +22,7 @@ def generate_launch_description():
     # Start robot
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
-            package_path,'launch','rsp.launch.py'
+            package_path,'launch','rsp1.launch.py'
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
