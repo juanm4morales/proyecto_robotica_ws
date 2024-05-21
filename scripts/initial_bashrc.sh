@@ -1,0 +1,6 @@
+alias home="cd ~/project"
+alias build="source ~/project/scripts/colcon_build.sh"
+alias teleop="ros2 run teleop_twist_keyboard teleop_twist_keyboard"
+alias race="ros2 launch boxbots launch_sim.launch.py world:=~/project/install/boxbots/share/boxbots/worlds/Race_World/Race.xml"
+alias arena="ros2 launch boxbots launch_sim.launch.py world:=~/project/install/boxbots/share/boxbots/worlds/Arena_World/Arena.xml"
+alias slam="ros2 launch slam_toolbox online_async_launch.py params_file:=~/project/src/boxbots/config/mapper_params_online_async.yaml use_sim_time:=true"

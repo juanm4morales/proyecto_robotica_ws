@@ -22,15 +22,15 @@ def generate_launch_description():
     # Start robot
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
-            package_path,'launch','rsp1.launch.py'
+            package_path,'launch','rsp.launch.py'
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    rsp2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            package_path,'launch','rsp2.launch.py'
-        )]), launch_arguments={'use_sim_time': 'true'}.items()
-    )
+    # rsp2 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([os.path.join(
+    #         package_path,'launch','rsp2.launch.py'
+    #     )]), launch_arguments={'use_sim_time': 'true'}.items()
+    # )
 
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
@@ -44,32 +44,32 @@ def generate_launch_description():
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        namespace='donBarredora',
+        # namespace='donBarredora',
         arguments=[
             '-topic', 'robot_description',
-            '-entity', 'donBarredora'
+            '-entity', 'boxbots'
         ],
         output='screen'
     )
 
-    spawn_entity2 = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        namespace='axeBot',
-        arguments=[
-            '-topic', 'robot_description',
-            '-entity', 'axeBot'
-        ],
-        output='screen'
-    )
+    # spawn_entity2 = Node(
+    #     package='gazebo_ros',
+    #     executable='spawn_entity.py',
+    #     namespace='axeBot',
+    #     arguments=[
+    #         '-topic', 'robot_description',
+    #         '-entity', 'axeBot'
+    #     ],
+    #     output='screen'
+    # )
 
 
 
     # Launch them all!
     return LaunchDescription([
         rsp,
-        rsp2,
+        # rsp2,
         gazebo,
         spawn_entity,
-        spawn_entity2,
+        # spawn_entity2,
     ])

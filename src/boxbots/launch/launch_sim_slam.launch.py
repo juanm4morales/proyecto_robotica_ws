@@ -17,7 +17,7 @@ def generate_launch_description():
     # Start simulation
     sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(package_path, 'launch', 'launch_sim_joy.launch.py')
+            os.path.join(package_path, 'launch', 'launch_sim.launch.py')
         ]), launch_arguments={
             'world': os.path.join(package_path, 'worlds', world_folder, world_index)
         }.items()
