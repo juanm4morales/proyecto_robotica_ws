@@ -245,7 +245,7 @@
     <joint name="${robot_name}/lidar_support_joint" type="fixed">
         <parent link="${robot_name}/tail"/>
         <child link="${robot_name}/lidar_support"/>
-        <origin xyz="-0.07 0 0"/>
+        <origin xyz="0.2 0 -0.1"/>
     </joint>
 
     <link name="${robot_name}/lidar_support">
