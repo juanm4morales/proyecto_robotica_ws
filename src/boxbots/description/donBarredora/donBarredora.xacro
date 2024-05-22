@@ -4,22 +4,22 @@
     <xacro:include filename="robot_core.xacro"/>
 
     <!-- RAMP -->
-    <joint name="ramp_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="ramp"/>
+    <joint name="${robot_name}/ramp_joint" type="fixed">
+        <parent link="${robot_name}/chassis"/>
+        <child link="${robot_name}/ramp"/>
         <origin xyz="0.6 0 0.01"/>
     </joint>
-    <link name="ramp">
+    <link name="${robot_name}/ramp">
         <visual>
             <geometry>
-                <mesh filename="file://$(find boxbots)/description/meshes/ramp1x1x1.dae" scale="0.24 0.4 0.2" />
+                <mesh filename="file://$(find boxbots)/description/donBarredora/meshes/ramp1x1x1.dae" scale="0.24 0.4 0.2" />
             </geometry>
-            <material name="gray"/>
+            <material name="white"/>
         </visual>
         <collision>
             
             <geometry>
-                <mesh filename="file://$(find boxbots)/description/meshes/ramp1x1x1.dae" scale="0.24 0.4 0.2" />
+                <mesh filename="file://$(find boxbots)/description/donBarredora/meshes/ramp1x1x1.dae" scale="0.24 0.4 0.2" />
             </geometry>
         </collision>
         <inertial>
