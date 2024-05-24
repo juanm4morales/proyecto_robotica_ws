@@ -12,23 +12,33 @@ bot_namespace = 'axeBot'
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
-    joy_params = os.path.join(get_package_share_directory('boxbots'),'config','joystick.yaml')
-
     joy_node = Node(
             package='joy',
             executable='joy_node',
             namespace=bot_namespace,
-            parameters=[joy_params, {'use_sim_time': use_sim_time}],
-         )
+            parameters=[{'deadzone': 0.05},
+                    {'autorepeat_rate': 20.0}, 
+                    {'use_sim_time': use_sim_time}],
+        )
 
     teleop_node = Node(
             package='teleop_twist_joy',
             executable='teleop_node',
             name='teleop_node',
             namespace=bot_namespace,
-            parameters=[joy_params, {'use_sim_time': use_sim_time}],
+            parameters=[{'axis_linear.x': 1},
+            {'enable_button': 6},
+            {'require_enable_button': False},
+            {'enable_turbo_button': 5},
+            {'scale_linear.x': 0.3},
+            {'scale_linear_turbo.x': 2.0},
+            {'axis_angular.yaw': 0},
+            {'scale_angular.yaw': 1.0},
+            {'scale_angular_turbo.yaw': 2.0},
+            {'axis_linear.x': 1},
+            {'use_sim_time': use_sim_time}],
             remappings=[('/cmd_vel','/cmd_vel_joy')]
-         )
+        )           
 
     # twist_stamper = Node(
     #         package='twist_stamper',
