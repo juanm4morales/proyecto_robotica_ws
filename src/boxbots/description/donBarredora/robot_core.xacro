@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="inertial_macros.xacro"/>
+    <xacro:include filename="../inertial_macros.xacro"/>
 
     <material name="white">
         <color rgba="1 1 1 1"/>
@@ -23,35 +23,36 @@
         <color rgba="1 0 0 1"/>
     </material>
 
+    <xacro:arg name="robot_name" default="robot_core"/>
+    <xacro:property name="robot_name" value="$(arg robot_name)"/>
+
     <!-- BASE LINK -->
-    <link name="base_link">
-    </link>
+    <link name="${robot_name}/base_link"></link>
 
     <!-- BASE FOOTPRINT LINK -->
     <!-- for 2d space reference. for mapping-->
-    <joint name="base_footprint_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_footprint"/>
+    <joint name="${robot_name}/base_footprint_joint" type="fixed">
+        <parent link="${robot_name}/base_link"/>
+        <child link="${robot_name}/base_footprint"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
-    <link name="base_footprint">
-    </link>
+    <link name="${robot_name}/base_footprint"></link>
 
     <!-- CHASSIS LINK-->
-    <joint name="chassis_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="chassis"/>
+    <joint name="${robot_name}/chassis_joint" type="fixed">
+        <parent link="${robot_name}/base_link"/>
+        <child link="${robot_name}/chassis"/>
         <origin xyz="-0.15 0 -0.05"/>
     </joint>
     
-    <link name="chassis">
+    <link name="${robot_name}/chassis">
         <visual>
             <origin xyz="0.3 0 0.1"/>
             <geometry>
                 <box size="0.6 0.4 0.2"/>
             </geometry>
-            <material name="grey"/>
+            <material name="orange"/>
         </visual>
 
         <collision>
@@ -65,20 +66,20 @@
         </xacro:inertial_box>
     </link>
 
-    <gazebo reference="chassis">
+    <gazebo reference="${robot_name}/chassis">
         <material>Gazebo/Grey</material>
     </gazebo>
 
     <!--LEFT WHEEL LINK-->
-    <joint name="left_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="left_wheel"/>
+    <joint name="${robot_name}/left_wheel_joint" type="continuous">
+        <parent link="${robot_name}/base_link"/>
+        <child link="${robot_name}/left_wheel"/>
         <!-- y=+(ancho/2+grosor_rueda/2)  -->
         <origin xyz="0 0.225 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
-    <link name="left_wheel">
+    <link name="${robot_name}/left_wheel">
         <visual>
             <geometry>
                 <cylinder radius="0.1" length="0.05"/>
@@ -96,21 +97,21 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <gazebo reference="left_wheel">
+    <gazebo reference="${robot_name}/left_wheel">
         <material>Gazebo/Black</material>
     </gazebo>
 
 
     <!--RIGHT WHEEL LINK-->
-    <joint name="right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="right_wheel"/>
+    <joint name="${robot_name}/right_wheel_joint" type="continuous">
+        <parent link="${robot_name}/base_link"/>
+        <child link="${robot_name}/right_wheel"/>
         <!-- y=-(ancho/2+grosor_rueda/2)  -->
         <origin xyz="0 -0.225 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 -1"/>
     </joint>
 
-    <link name="right_wheel">
+    <link name="${robot_name}/right_wheel">
         <visual>
             <geometry>
                 <cylinder radius="0.1" length="0.05"/>
@@ -128,19 +129,19 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <gazebo reference="right_wheel">
+    <gazebo reference="${robot_name}/right_wheel">
         <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- CASTER BASE LINK-->
 
-    <joint name="caster_base_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="caster_base"/>
+    <joint name="${robot_name}/caster_base_joint" type="fixed">
+        <parent link="${robot_name}/chassis"/>
+        <child link="${robot_name}/caster_base"/>
         <origin xyz="0.5 0 0"/>
     </joint>
 
-    <link name="caster_base">
+    <link name="${robot_name}/caster_base">
         <visual>
             <origin xyz="0 0 -0.015"/>
             <geometry>
@@ -165,19 +166,19 @@
 
     </link>
 
-    <gazebo reference="caster_wheel">
+    <gazebo reference="${robot_name}/caster_wheel">
         <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- CASTER WHEEL LINK-->
     
-    <joint name="caster_wheel_joint" type="fixed">
-        <parent link="caster_base"/>
-        <child link="caster_wheel"/>
+    <joint name="${robot_name}/caster_wheel_joint" type="fixed">
+        <parent link="${robot_name}/caster_base"/>
+        <child link="${robot_name}/caster_wheel"/>
         <origin xyz="0 0 -0.03"/>
     </joint>
 
-    <link name="caster_wheel">
+    <link name="${robot_name}/caster_wheel">
         <visual>
             <geometry>
                 <sphere radius="0.02"/>
@@ -196,7 +197,7 @@
         </xacro:inertial_sphere>
     </link>
 
-    <gazebo reference="caster_wheel">
+    <gazebo reference="${robot_name}/caster_wheel">
         <material>Gazebo/Black</material>
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
@@ -204,13 +205,13 @@
 
     <!-- LIDAR SUPPORT LINK-->
 
-    <joint name="lidar_support_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="lidar_support"/>
+    <joint name="${robot_name}/lidar_support_joint" type="fixed">
+        <parent link="${robot_name}/chassis"/>
+        <child link="${robot_name}/lidar_support"/>
         <origin xyz="0.15 0 0.2"/>
     </joint>
 
-    <link name="lidar_support">
+    <link name="${robot_name}/lidar_support">
         <visual>
             <origin xyz="0 0 0.035"/>
             <geometry>
@@ -230,7 +231,7 @@
 
     </link>
 
-    <gazebo reference="lidar_support">
+    <gazebo reference="${robot_name}/lidar_support">
         <material>Gazebo/Black</material>
     </gazebo>
 
