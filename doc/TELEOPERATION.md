@@ -33,7 +33,6 @@ Los gamepads o joysticks son ideales para la robótica porque están diseñados 
 Con ROS, se puede decidir si conectar el gamepad directamente a la computadora del robot o a una estación base o máquina de desarrollo. Conectar a la máquina de desarrollo facilita el cambio entre simulación y el robot real sin modificar la configuración, aunque conectar directamente al robot puede ofrecer mejor rendimiento debido a la menor latencia.
 
 ### Configuración en Linux
-La mayoría de los usuarios de ROS utilizan Linux, que generalmente ofrece un buen soporte para gamepads. Aunque el soporte en Linux no es tan completo como en Windows, está mejorando constantemente gracias a esfuerzos como los de Valve.
 
 Para verificar que el gamepad funciona en Linux, se pueden instalar herramientas útiles:
 
