@@ -54,15 +54,35 @@ Para verificar qué controladores puede ver ROS, se puede usar:
 ros2 run joy joy_enumerate_devices
 ````
 
-Usualmente, se usa el controlador con el ID 0. Para ejecutar el nodo joy en ROS:
+Usualmente, se usa el controlador con el ID 0. 
+
+Para ejecutar el nodo joy en ROS:
 
 ````
 ros2 run joy joy_node
 ````
 
-Nosotros, por nuestra parte, lanzamos los nodos utilizando Python, especificando el paquete desde la clase Node:
+### Creación de archivos de lanzamiento y parámetros con Python
 
-![Parámetros del joystick.yaml](./images/teleop_node.jpg)
+Para configurar el control del gamepad, es necesario crear un archivo de lanzamiento y un archivo de parámetros. Esto es importante porque el siguiente nodo que vamos a ejecutar tiene muchos parámetros que especificaro.
+
+#### Archivo de parametros
+
+Debemos crear un archivo llamado joystick.yaml en el directorio config. Por ejemplo, puede contener los siguientes parámtros y valores:
+
+````
+joy_node:
+  ros__parameters:
+    device_id: 0
+    deadzone: 0.05
+    autorepeat_rate: 20.0
+````
+
+#### Archivo de lanzamiento (launch)
+
+Crearemos un archivo llamado joystick.launch.py en el directorio de lanzamiento que especificará la ruta a un archivo de parámetros, declara un nodo joy que usa ese archivo de parámetros y luego lo lanza. Nosotros escribimos el siguiente, colocando los parámetros directamente en la clase Node:
+
+![Parámetros del launcher.yaml](./images/teleop_node.jpg)
 
 #### Conversión de Joy a Twist
 Una vez que los datos del joystick están disponibles en /joy, es necesario convertirlos a un mensaje Twist usando el paquete teleop_twist_joy. Esto permite controlar el robot basándose en la entrada del joystick.
