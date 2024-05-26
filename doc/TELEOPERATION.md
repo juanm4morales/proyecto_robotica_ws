@@ -10,7 +10,7 @@ La teleoperación suele constar de dos partes:
 
 
 <p align="center" width="100%">
-    <img src="./robot_description/image/teleoperation_describe.png" height="150" width="300">
+    <img src="./image/arq" height="150" width="300">
 </p>
 
 ## Teleoperación utilizando teclado
@@ -60,6 +60,10 @@ Usualmente, se usa el controlador con el ID 0. Para ejecutar el nodo joy en ROS:
 ros2 run joy joy_node
 ````
 
+Nosotros, por nuestra parte, lanzamos los nodos utilizando Python, especificando el paquete desde la clase Node:
+
+![Parámetros del joystick.yaml](./images/teleop_node.jpg)
+
 #### Conversión de Joy a Twist
 Una vez que los datos del joystick están disponibles en /joy, es necesario convertirlos a un mensaje Twist usando el paquete teleop_twist_joy. Esto permite controlar el robot basándose en la entrada del joystick.
 
@@ -86,6 +90,10 @@ teleop_node:
     enable_button: 6
     enable_turbo_button: 7
 ````
+
+Paticularmente, en la figura siguiente se aprecia los parámetros especificados del yaml utilizando Python.
+
+![Parámetros del joystick.yaml](./images/teleop_node.jpg)
 
 ## Obtener Retroalimentación
 
