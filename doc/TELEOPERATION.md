@@ -10,8 +10,10 @@ La teleoperación suele constar de dos partes:
 
 
 <p align="center" width="100%">
-    <img src="./image/arq" height="150" width="300">
+    <img src="./image/teleoperation_describe.png" height="150" width="300">
 </p>
+
+
 
 ## Teleoperación utilizando teclado
 
@@ -78,13 +80,13 @@ joy_node:
     autorepeat_rate: 20.0
 ````
 
-#### Archivo de lanzamiento (launch)
+Nosotros especificamos los parametros dentro de la generacion del nodo `joy_node`:
 
-Crearemos un archivo llamado joystick.launch.py en el directorio de lanzamiento que especificará la ruta a un archivo de parámetros, declara un nodo joy que usa ese archivo de parámetros y luego lo lanza. Nosotros escribimos el siguiente, colocando los parámetros directamente en la clase Node:
+<p align="center" width="100%">
+    <img src="./image/joy_node.png" height="150" width="300">
+</p>
 
-![Parámetros del launcher.yaml](./images/teleop_node.jpg)
-
-#### Conversión de Joy a Twist
+##### Conversión de Joy a Twist
 Una vez que los datos del joystick están disponibles en /joy, es necesario convertirlos a un mensaje Twist usando el paquete teleop_twist_joy. Esto permite controlar el robot basándose en la entrada del joystick.
 
 Se puede configurar un archivo de parámetros joystick.yaml para especificar las características del gamepad, como los ejes utilizados para el movimiento lineal y angular, las velocidades máxima y turbo, y los botones de habilitación.
@@ -113,7 +115,14 @@ teleop_node:
 
 Paticularmente, en la figura siguiente se aprecia los parámetros especificados del yaml utilizando Python.
 
-![Parámetros del joystick.yaml](./images/teleop_node.jpg)
+<p align="center" width="100%">
+    <img src="./image/teleop_node.png" height="150" width="300">
+</p>
+
+#### Archivo de lanzamiento (launch)
+
+El archivo joystick.launch.py en el directorio de lanzamiento, lanza los nodos `joy` y `teleop_node` con sus respectivos parametros especificados anteriormente. 
+
 
 ## Obtener Retroalimentación
 
