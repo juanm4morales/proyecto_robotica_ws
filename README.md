@@ -58,7 +58,12 @@ Launch simulación de robot con gazebo y mundo personalizado
 ros2 launch boxbots launch_sim.launch.py world:=install/boxbots/share/boxbots/worlds/Race_World/Race.xml
 ```
 
-Launch teleoperation keyboard
+Launch teleoperation keyboard con namespace (cambiar namespaceBot por el namespace que se quiere controlar):
 ```    
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r __ns:=/namespaceBot
 ```    
+
+Launch de control con joystick (joystick0.launch.py controla el robot donBarredora con el dispositivo que el sistema le asigno el id 0):
+```  
+ros2 launch boxbots joystick0.launch.py
+```  
