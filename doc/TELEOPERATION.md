@@ -66,7 +66,7 @@ ros2 run joy joy_node
 
 ### Creación de archivos de lanzamiento y parámetros con Python
 
-Para configurar el control del gamepad, es necesario crear un archivo de lanzamiento y un archivo de parámetros. Esto es importante porque el siguiente nodo que vamos a ejecutar tiene muchos parámetros que especificaro.
+Para configurar el control del gamepad, es necesario crear un archivo de lanzamiento y un archivo de parámetros. Esto es importante porque el siguiente nodo que vamos a ejecutar tiene muchos parámetros que especificar.
 
 #### Archivo de parametros
 
@@ -119,9 +119,17 @@ Paticularmente, en la figura siguiente se aprecia los parámetros especificados 
     <img src="./image/teleop_node.png" height="150" width="300">
 </p>
 
-#### Archivo de lanzamiento (launch)
+Estos parametros se establecieron en base a un joystick de ps4. Ante la imposibilidad de movimiento se debe comprobar los controles asignados (especificamente `axis_linear.x` y `axis_angular.yaw` que establecen qué botones del control se utilizan para el movimiento `lineal` y `angular` respectivamente). Recordando lo siguiente: la velocidad lineal es la velocidad a la que desea que el robot se mueva hacia adelante o hacia atrás, mientras que la velocidad angular define qué tan rápido desea que el robot gire en el sentido de las agujas del reloj y en el sentido contrario a las agujas del reloj.
 
-El archivo joystick.launch.py en el directorio de lanzamiento, lanza los nodos `joy` y `teleop_node` con sus respectivos parametros especificados anteriormente. 
+Para el movimiento del robot se utiliza el botón `L3` del control (hacia arriba y abajo se controla el movimiento lineal, y hacia la derecha e izquierda se controla el movimiento angular). 
+
+Y el parametro `enable_turbo_button`, fijado en el botón `R1`, establece qué botón se utiliza para asignarle mayor velocidad (no incremental). 
+
+#### Archivos de lanzamiento (launch)
+
+- El archivo joystick0.launch.py en el directorio de lanzamiento, lanza los nodos `joy_node` y `teleop_node` con sus respectivos parametros especificados anteriormente, controlando el robot `donBarredora` y utilizando el joystick que se le haya asignado `device_id`: 0. 
+
+- El archivo joystick1.launch.py realiza el lanzamiento de los mismos nodos pero controlando al robot `axeBot` y utilizando el joystick que se le haya asignado `device_id`: 1. 
 
 
 ## Obtener Retroalimentación
