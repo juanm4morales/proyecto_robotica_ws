@@ -36,8 +36,8 @@ RUN source /opt/ros/humble/setup.bash \
     && cd /root/proyecto_robotica_ws \
     && colcon build
 
-
-RUN echo "cat /root/proyecto_robotica_ws/scripts/initial_bashrc" >> ~/.bashrc
+COPY ./scripts/initial_bashrc.sh /root/.initial_bashrc.sh
+RUN echo "source /root/.initial_bashrc.sh" >> ~/.bashrc
 RUN echo "source /root/proyecto_robotica_ws/install/setup.bash" >> ~/.bashrc
 
 
