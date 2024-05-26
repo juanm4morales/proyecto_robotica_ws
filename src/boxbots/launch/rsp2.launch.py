@@ -24,13 +24,13 @@ def generate_launch_description():
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file, mappings={
         'robot_name': robot_name,  # Resuelve el LaunchConfiguration a su valor
-        'use_ros2_control': 'true'
     })
 
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
+        namespace= robot_name,
         executable='robot_state_publisher',
         output='screen',
         parameters=[params],
