@@ -11,7 +11,7 @@ from launch_ros.actions import Node
 import xacro
 
 
-def rsp_setup(context: LaunchContext, robot_name, use_sim_time, robot_description_topic):
+def rsp_setup(context: LaunchContext, robot_name, use_sim_time):
     robot_name_str = context.perform_substitution(robot_name)
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('boxbots'))
@@ -23,6 +23,7 @@ def rsp_setup(context: LaunchContext, robot_name, use_sim_time, robot_descriptio
     
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     
+    robot_description_topic = "/" + robot_name_str + "/robot_description"
     # Create a robot_state_publisher node
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -38,11 +39,9 @@ def rsp_setup(context: LaunchContext, robot_name, use_sim_time, robot_descriptio
 def generate_launch_description():
     # Launch!
     return LaunchDescription([
-        DeclareLaunchArgument('use_sim_time', default_value='false', description='Use sim time if true'),
+        DeclareLaunchArgument('use_sim_time', default_value='true', description='Use sim time if true'),
         DeclareLaunchArgument('robot_name', default_value='axeBot', description='Name of current robot'),
-        DeclareLaunchArgument('robot_description_topic', default_value='/robot_description', description='Topic name for the robot description'),
         OpaqueFunction(function=rsp_setup,
                        args=[LaunchConfiguration('robot_name'),
-                             LaunchConfiguration('use_sim_time'),
-                             LaunchConfiguration('robot_description_topic')])
+                             LaunchConfiguration('use_sim_time')])
     ])
