@@ -9,16 +9,17 @@ XAUTH=/tmp/.docker.xauth
 
   # --user ros \
 docker run -it \
-  --name=r2_boxbots_container \
+  --name=r2_boxbots_container_multi \
   --env="DISPLAY=$DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  --volume="${PWD}/../:/root/project" \
+  --volume="${PWD}/:/root/project" \
+  --mount type=bind,source=/dev/bus/usb,target=/dev/bus/usb \
   --env="XAUTHORITY=$XAUTH" \
   --volume="$XAUTH:$XAUTH" \
   --net=host \
   --privileged \
-  r2_boxbots \
+  r2_boxbots_multi \
   bash
 
 echo "Done."
