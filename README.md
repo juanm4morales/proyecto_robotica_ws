@@ -66,4 +66,9 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r __ns:=/namesp
 Launch de control con joystick (joystick0.launch.py controla el robot donBarredora con el dispositivo que el sistema le asigno el id 0):
 ```  
 ros2 launch boxbots joystick0.launch.py
+```
+
+Launch de control con joystick (joystick1.launch.py controla el robot axeBot con el dispositivo que el sistema le asigno el id 1):
+```  
+ros2 launch boxbots joystick1.launch.py
 ```  
