@@ -14,7 +14,7 @@
             <geometry>
                 <mesh filename="file://$(find boxbots)/description/donBarredora/meshes/ramp1x1x1.dae" scale="0.24 0.4 0.2" />
             </geometry>
-            <material name="white"/>
+            <material name="black"/>
         </visual>
         <collision>
             
@@ -28,4 +28,7 @@
             <inertia ixx="0.01520037" ixy="-0.00000000" ixz="0.00168628" iyy="0.00506596" iyz="0.00000000" izz="0.01653226"/>
         </inertial>        
     </link>
+    <gazebo reference="${robot_name}/ramp">
+        <material>Gazebo/Orange</material>
+    </gazebo>
 </robot>
