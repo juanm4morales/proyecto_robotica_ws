@@ -7,9 +7,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch_ros.actions import Node
 
-
 import xacro
-
 
 def rsp_setup(context: LaunchContext, robot_name, use_sim_time):
     robot_name_str = context.perform_substitution(robot_name)
@@ -30,7 +28,7 @@ def rsp_setup(context: LaunchContext, robot_name, use_sim_time):
         executable='robot_state_publisher',
         output='screen',
         parameters=[params],
-        remappings=[('/robot_description', robot_description_topic)]
+        remappings=[('/robot_description', robot_description_topic), ('/joint_states', '/' +robot_name_str + '/joint_states')]
     )
     return [node_robot_state_publisher]
  
@@ -40,7 +38,7 @@ def generate_launch_description():
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument('use_sim_time', default_value='true', description='Use sim time if true'),
-        DeclareLaunchArgument('robot_name', default_value='axeBot', description='Name of current robot'),
+        DeclareLaunchArgument('robot_name', default_value='donBarredora', description='Name of current robot'),
         OpaqueFunction(function=rsp_setup,
                        args=[LaunchConfiguration('robot_name'),
                              LaunchConfiguration('use_sim_time')])
