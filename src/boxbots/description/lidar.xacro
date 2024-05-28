@@ -58,7 +58,7 @@
             </ray>
             <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
                 <ros>
-                    <argument>~/out:=imu</argument>
+                    <argument>~/out:=scan</argument>
                     <namespace>$(arg robot_name)</namespace>
                 </ros>
                 <output_type>sensor_msgs/LaserScan</output_type>
