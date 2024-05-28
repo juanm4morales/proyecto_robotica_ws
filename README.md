@@ -54,8 +54,14 @@ ros2 launch boxbots launch_sim.launch.py
 ```
 
 Launch simulación de robot con gazebo y mundo personalizado
+
+Race World:
 ```
-ros2 launch boxbots launch_sim.launch.py world:=install/boxbots/share/boxbots/worlds/Race_World/Race.xml
+ros2 launch boxbots launch_sim_race.launch.py 
+```
+Arena World:
+```
+ros2 launch boxbots launch_sim_arena.launch.py 
 ```
 
 Launch teleoperation keyboard con namespace (cambiar namespaceBot por el namespace que se quiere controlar):
