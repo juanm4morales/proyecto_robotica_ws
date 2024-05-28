@@ -7,7 +7,7 @@
     <gazebo>
         <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
             <ros>
-                <namespace>/$(arg robot_name)</namespace>
+                <namespace>$(arg robot_name)</namespace>
             </ros>
             <!-- Wheel Information -->
             <left_joint>$(arg robot_name)/left_wheel_joint</left_joint>
@@ -23,7 +23,8 @@
             <odometry_frame>odom</odometry_frame>
             <robot_base_frame>$(arg robot_name)/base_link</robot_base_frame>
 
-            <publish_odom>true</publish_odom>
+            <publish_odom>true</publish_odom>ç
+            <odometryTopic>$(arg robot_name)/odom</odometryTopic>
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>true</publish_wheel_tf>
 
