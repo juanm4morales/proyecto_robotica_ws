@@ -31,6 +31,7 @@ def generate_launch_description():
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
+        namespace= robot_name,
         executable='robot_state_publisher',
         output='screen',
         parameters=[params],
