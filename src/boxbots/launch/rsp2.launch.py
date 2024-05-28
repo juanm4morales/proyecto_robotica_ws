@@ -14,8 +14,6 @@ def generate_launch_description():
 
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
-    #TODO: Hacer que este argumento se pase como string
-    #robot_name = LaunchConfiguration('robot_name')
     robot_name = "axeBot"
     robot_description_topic = LaunchConfiguration('robot_description_topic')
 
