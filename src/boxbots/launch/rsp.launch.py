@@ -21,14 +21,13 @@ def rsp_setup(context: LaunchContext, robot_name, use_sim_time):
     
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     
-    robot_description_topic = "/" + robot_name_str + "/robot_description"
     # Create a robot_state_publisher node
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace=robot_name_str,
         output='screen',
         parameters=[params],
-        remappings=[('/robot_description', robot_description_topic), ('/joint_states', '/' +robot_name_str + '/joint_states')]
     )
     return [node_robot_state_publisher]
  
