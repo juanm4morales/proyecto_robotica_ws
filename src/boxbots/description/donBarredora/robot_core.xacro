@@ -9,7 +9,7 @@
 
     <material name="orange">
         <color rgba="1 0.5088 0.0468 1"/>
-    </material>
+    </material>    
 
     <material name="blue">
         <color rgba="0.2 0.2 1 1"/>
@@ -23,6 +23,10 @@
         <color rgba="0.175 0.175 0.175 1"/>
     </material>
 
+    <material name="grey">
+        <color rgba="0.3 0.3 0.3 1.0"/>
+    </material>
+
     <material name="red">
         <color rgba="1 0 0 1"/>
     </material>
@@ -30,7 +34,11 @@
     <xacro:arg name="robot_name" default="robot_core"/>
     <xacro:property name="robot_name" value="$(arg robot_name)"/>
 
+    
+
     <!-- BASE LINK -->
+
+    
     <link name="${robot_name}/base_link"></link>
 
     <!-- BASE FOOTPRINT LINK -->
@@ -56,7 +64,7 @@
             <geometry>
                 <box size="0.6 0.4 0.2"/>
             </geometry>
-            <material name="darkGrey"/>
+            <material name="orange"/>
         </visual>
 
         <collision>
@@ -71,7 +79,7 @@
     </link>
 
     <gazebo reference="${robot_name}/chassis">
-        <material>Gazebo/DarkGrey</material>
+        <material>Gazebo/Orange</material>
     </gazebo>
 
     <!--LEFT WHEEL LINK-->
@@ -170,7 +178,7 @@
 
     </link>
 
-    <gazebo reference="${robot_name}/caster_wheel">
+    <gazebo reference="${robot_name}/caster_base">
         <material>Gazebo/Black</material>
     </gazebo>
 
@@ -187,7 +195,7 @@
             <geometry>
                 <sphere radius="0.02"/>
             </geometry>
-            <material name="black"/>
+            <material name="grey"/>
         </visual>
         
         <collision>
@@ -202,7 +210,7 @@
     </link>
 
     <gazebo reference="${robot_name}/caster_wheel">
-        <material>Gazebo/Black</material>
+        <material>Gazebo/Grey</material>
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>
     </gazebo>
