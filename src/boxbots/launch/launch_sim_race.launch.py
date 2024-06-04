@@ -21,7 +21,7 @@ def generate_launch_description():
     # Start robot
        
     rsp1 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(package_path,'launch','rsp1.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(package_path,'launch','rsp.launch.py')]),
         launch_arguments={'use_sim_time': 'true',
                           'robot_name': 'donBarredora',
                           'robot_description_topic': "donBarredora/robot_description"
@@ -29,7 +29,7 @@ def generate_launch_description():
     )
 
     rsp2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(package_path,'launch','rsp2.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(package_path,'launch','rsp.launch.py')]),
         launch_arguments={'use_sim_time': 'true',
                           'robot_name': 'axeBot',
                           'robot_description_topic': "axeBot/robot_description"
