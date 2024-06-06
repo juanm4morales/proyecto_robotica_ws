@@ -9,7 +9,7 @@ XAUTH=/tmp/.docker.xauth
 
   # --user ros \
   docker run -it \
-    --name=r2_boxbots_container \
+    --name=r2_boxbots_multi_container \
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
@@ -19,7 +19,7 @@ XAUTH=/tmp/.docker.xauth
     --volume="$XAUTH:$XAUTH" \
     --net=host \
     --privileged \
-    r2_boxbots \
+    r2_boxbots_multi \
     bash
 
 echo "Done."

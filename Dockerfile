@@ -24,7 +24,10 @@ RUN sudo apt-get update \
     ros-humble-joint-state-publisher \
     ros-humble-gazebo-ros \
     ros-humble-twist-mux \
-    ros-humble-slam-toolbox
+    ros-humble-slam-toolbox \
+    ros-humble-ros2-control \
+    ros-humble-ros2-controllers \
+    ros-humble-gazebo-ros2-control 
 
 
 COPY . /root/proyecto_robotica_ws
@@ -33,8 +36,8 @@ RUN source /opt/ros/humble/setup.bash \
     && cd /root/proyecto_robotica_ws \
     && colcon build
 
-
-RUN echo "alias open_dir=\"cd ~/project\"" >> ~/.bashrc
+COPY ./scripts/initial_bashrc.sh /root/.initial_bashrc.sh
+RUN echo "source /root/.initial_bashrc.sh" >> ~/.bashrc
 RUN echo "source /root/proyecto_robotica_ws/install/setup.bash" >> ~/.bashrc
 
 
